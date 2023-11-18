@@ -1,0 +1,99 @@
+type Query {
+  hello: String
+  getPerson(name: String, age: Int): String
+  getInt: Int
+  getFloat: Float
+  getBoolean: Boolean
+  getID: ID
+  getNumberList(number: [Int]): [Int]
+  product(id: ID!): Product
+  products: [Product!]!
+  customers: [Customer!]!
+  customer(id: ID!): Customer
+  categories: [Category!]!
+  category(id: ID!): Category
+}
+
+type Mutation {
+  addProduct(dto: ProductDto!): Product
+  updateProduct(id: ID!, dto: UpdateProductDto!): Product
+  deleteProduct(id: ID!): Product
+  addCustomer(dto: CreateCustomer!): Customer
+  updateCustomer(id: ID!, dto: CreateCustomer!): Customer
+  deleteCustomer(id: ID!): Customer
+  login(email: EmailAddress!, password: String!): AuthResponse
+  createCategory(dto: createCategory!): Category
+}
+
+type Product {
+  id: ID!
+  name: String!
+  price: Float!
+  images: [String]
+  description: String!
+  createdAt: String!
+  categories: Category
+}
+
+type Category {
+  id: ID!
+  name: String!
+  products: [Product!]!
+}
+type Customer {
+  id: ID!
+  firstName: String!
+  lastName: String!
+  phone: String!
+  user: User!
+}
+
+type User {
+  id: ID!
+  email: String!
+  password: String!
+  role: String!
+}
+
+type AuthResponse {
+  user: User!
+  accessToken: String
+  refreshToken: String
+}
+
+# Los inputs son dto en los que se puede definir la estructura de los datos que se van a recibir en una mutación
+
+input ProductDto {
+  name: String!
+  price: Float!
+  categoryName: String!
+  images: [String]
+  description: String!
+}
+
+input UpdateProductDto {
+  name: String
+  price: Float
+  categoryName: String
+  images: [String]
+  description: String
+}
+
+input CreateCustomer {
+  firstName: String!
+  lastName: String!
+  phone: String!
+  user: CreateUser!
+}
+
+input CreateUser {
+  email: String!
+  password: String!
+  role: String!
+}
+
+input createCategory {
+  name: CategoryNameType!
+}
+
+scalar CategoryNameType

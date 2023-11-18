@@ -1,0 +1,5 @@
+{
+  "ignore": ["node_modules/**/*", "public/**/*", ".git/**/*", ".gitignore"],
+  "watch": ["src/**/*.graphql", "src/**/*.js", "src/**/*.gql"],
+  "ext": "js graphql gql"
+}

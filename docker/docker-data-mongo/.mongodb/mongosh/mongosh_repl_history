@@ -1,0 +1,4 @@
+exit
+db.users.insertOne({"name":"Amado"})
+use cursoDocker
+show dbs

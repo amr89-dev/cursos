@@ -1,0 +1,15 @@
+{
+  "name": "uploader",
+  "version": "0.0.1",
+  "description": "Aplicación para subir archivos al sevidor",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "@amr89-dev",
+  "license": "MIT",
+  "dependencies": {
+    "formidable": "2.0.1",
+    "fs-extra": "^10.1.0"
+  }
+}
